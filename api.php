@@ -6,9 +6,33 @@ $host = $_GET['host'];
 $port = $_GET['port'];
 $time = $_GET['time'];
 $method = $_GET['method'];
+$key = $_GET['key'];
 
 //Methods
 $array = array("NTP-FNL", "LDAP-FNL");
+
+//API Key
+$ray = array("APIKEY");
+
+//Check if the key is empty
+if(!empty($key)) {
+} else {
+    echo 'User key empty!';
+die();
+}
+
+//Check if the key matches
+if(in_array($key, $ray)) {
+} else {
+    echo 'User key incorrect!';
+die();
+}
+
+//Time limit
+if($time > 1000){ //Change to whatever time you want
+    echo 'You have exceeded your max attack time!';
+die();
+}
 
 //APIs
 if($method == "NTP-FNL") {
